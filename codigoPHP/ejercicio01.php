@@ -7,15 +7,16 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary">
+        <header class="text-center bg-secondary" style="height: 75px">
             <h3>1. Inicializar variables de los distintos tipos de datos básicos(string, int, float, bool) y mostrar los datos por pantalla (echo, print, printf, print_r,var_dump).</h3>
         </header>
-        <?php
+        <main style="margin-bottom: 75px">
+            <?php
             /**
-                * @author Borja Nuñez Refoyo
-                * @version 2.0 
-                * @since 07/03/2023
-            */
+             * @author Borja Nuñez Refoyo
+             * @version 2.0 
+             * @since 07/03/2023
+             */
             $cadena = "Mi primer String";
             $entero = 17;
             $real = 18.9;
@@ -69,12 +70,19 @@
             var_dump('<p>La variable <span style="color:greenyellow">$entero</span> es de tipo <span style="color:greenyellow">' . gettype($entero) . '</span> y tiene el valor <span style="color:greenyellow">' . " $entero</span></p>");
             var_dump('<p>La variable <span style="color:greenyellow">$real</span> es de tipo <span style="color:greenyellow">' . gettype($real) . '</span> y tiene el valor <span style="color:greenyellow">' . " $real</span></p>");
             var_dump('<p>La variable <span style="color:greenyellow">$interruptor</span> es de tipo <span style="color:greenyellow">' . gettype($interruptor) . '</span> y tiene el valor <span style="color:greenyellow">' . " $interruptor</span></p>");
-        ?>
-        <footer class="text-center bg-secondary">
-            <a title="Inicio" href="../indexProyectoTema3.html"><img src="../webroot/images/casa.png" width="40" height="40" alt="Inicio"/></a>
-            <a title="GitHub" href="https://github.com/BorjaNR/207DWESProyectoTema3" target="blank"><img src="../webroot/images/git.png" width="40" height="40" alt="GitHub"/></a>
-            <div>
-                <p>2023-24 IES los Sauces. @Todos los derechos reservados. <a href="../../index.html">Borja Nuñez Refoyo</a></p>
+            ?>
+        </main>
+        <footer class="text-center bg-secondary fixed-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center text-white">
+                        <p>&copy;2023-24 IES los Sauces. Todos los derechos reservados. <a href="../../index.html" style="color: white; text-decoration: none">Borja Nuñez Refoyo</a></p>
+                    </div>
+                    <div class="col text-end">
+                        <a title="Inicio" href="../indexProyectoTema3.html"><img src="../webroot/images/casa.png" width="40" height="40" alt="Inicio"/></a>
+                        <a title="GitHub" href="https://github.com/BorjaNR/207DWESProyectoTema3" target="blank"><img src="../webroot/images/git.png" width="40" height="40" alt="GitHub"/></a>
+                    </div>
+                </div>
             </div>
         </footer>
         <script src="./webroot/js/mainjs.js" ></script>
