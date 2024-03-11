@@ -1,40 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ejercicio02</title>
+        <title>muestraejercicio03</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
-            <h3>2. Inicializar y mostrar una variable heredoc.</h3>
+        <header class="text-center bg-secondary h-100 d-">
+            <h3>3. Mostrar en tu página index la fecha y hora actual formateada en castellano.</h3>
         </header>
-        <main style="margin-bottom: 75px" class="fs-4">
+        <main class="h-100 w-100">
             <?php
-            /**
-             * @author Borja Nuñez Refoyo
-             * @version 2.0
-             * @since 07/03/2024
-             */
-            $texto = <<< EOT
-             Mi nombre es Borja.
-             Esto va a salir todo en una linea.<br>
-             EOT;
-
-            $texto2 = <<< EOT
-             Mi nombre es Borja.<br>
-             Esto va a salir todo en varias lineas.<br>
-             EOT;
-            
-            $texto3 = <<< EOT
-             Mi nombre es Borja.'\n'
-             Esto va a salir todo en varias lineas.
-             EOT;
-            $prueba = "palabra \n palabra2 \n palabra3";
-            echo $texto;
-            echo $texto2;
-            echo $prueba;
+            show_source($filename = "../codigoPHP/ejercicio03.php");
             ?>
         </main>
         <footer class="text-center bg-secondary fixed-bottom py-3">
@@ -53,4 +31,3 @@
         <script src="./webroot/js/mainjs.js" ></script>
     </body>
 </html>
-

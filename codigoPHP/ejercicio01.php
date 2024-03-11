@@ -15,7 +15,7 @@
             /**
              * @author Borja Nuñez Refoyo
              * @version 2.0 
-             * @since 07/03/2023
+             * @since 07/03/2024
              */
             $cadena = "Mi primer String";
             $entero = 17;

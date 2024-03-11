@@ -1,56 +1,26 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
 <html>
     <head>
         <title>ejercicio04</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <style>
-        body {
-                box-sizing: border-box;
-                font-family: Verdana;
-            }
-
-            header {
-                background-color: #3399ff;
-                padding: 20px;
-                width: 100%;
-                font-size: 1rem;
-                color: white;
-                margin-bottom: 50px
-            }
-            footer{
-                position: absolute;
-                bottom: 0;
-                background-color: #3399ff;
-                color: white;
-                width: 100%;height:50px; 
-                padding: 20px;
-                text-align: center;
-                font-size: 1.2rem;
-            }
-            footer a{
-                color: white;
-                text-decoration: none;
-                margin: 10px;
-            }
-    </style>
+    <link rel="stylesheet" href="../webroot/css/main.css"/>
     <body>
-        <header>
+        <header class="text-center bg-secondary" style="height: 75px">
             <h3>4. Mostrar en tu página index la fecha y hora actual en Oporto formateada en portugués.</h3>
         </header>
-        <?php
+        <main style="margin-bottom: 75px" class="text-center fs-5">
+            <h3>Esto con DateTime</h3>
+            <?php
+
             /**
-                * @author Borja Nuñez Refoyo
-                * @version 1.2 
-                * @since 01/10/2023
-            */
+             * @author Borja Nuñez Refoyo
+             * @version 2.0
+             * @since 07/03/2024
+             */
             //Hacemos una función con un array que dependiendo el numero que nos devuelva el format de datetime sea un dia o otro
-            function nombreDia ($nDia){
+            function nombreDia($nDia) {
                 $aDia = [
                     0 => "Domingo",
                     1 => "Segunda-feira",
@@ -62,9 +32,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 ];
                 return $aDia[$nDia];
             }
-        
+
             //Hacemos una función con un array que dependiendo el numero que nos devuelva el format de datetime sea un mes o otro
-            function nombreMes ($nMes){
+            function nombreMes($nMes) {
                 $aMes = [
                     1 => "Janeiro",
                     2 => "Fevereiro",
@@ -81,30 +51,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 ];
                 return $aMes[$nMes];
             }
-            
+
             // Crear una instancia de DateTime con la fecha y hora actual en portugal
             $oFechaActual = new DateTime("Europe/Lisbon");
-            
+
             //Hacemos que la variable nDia y nMes reciba un numero de mes o de dia respectivamente
             $nDia = $oFechaActual->format('w');
             $nMes = $oFechaActual->format('n');
-            
+
             //Ahora creamos una vaiable que sea el nombre del mes llamando a las funciones previamente creadas
             $nomDia = nombreDia($nDia);
             $nomMes = nombreMes($nMes);
-            
-            // Formatear la fecha y hora actual en portugués
-            $fechaLisboa =$nomDia.$oFechaActual->format(' d') . ' de ' . $nomMes . ' de ' . $oFechaActual->format('Y, H:i:s');
 
-            echo'<h3>La hora actual en Oporto es: '.$fechaLisboa.'</h3>';
-        ?>
-        <footer>
-                <a title="Inicio" href="../indexProyectoTema3.html"><img src="../webroot/images/casa.png" width="40" height="40" alt="Inicio"/></a>
-                <a title="GitHub" href="https://github.com/BorjaNR" target="blank"><img src="../webroot/images/git.png" width="40" height="40" alt="GitHub"/></a>
-                <div>
-                    <a>2023-24 IES los Sauces. @Todos los derechos reservados. Borja Nuñez Refoyo</a>
+            // Formatear la fecha y hora actual en portugués
+            $fechaLisboa = $nomDia . $oFechaActual->format(' d') . ' de ' . $nomMes . ' de ' . $oFechaActual->format('Y, H:i:s');
+
+            echo'<p>La hora actual en Oporto es: ' . $fechaLisboa . '</p>';
+            
+            //Ahora procederemos ha ahcerlo son setlocale
+            echo '<h3>Esto con setlocale</h3>';
+
+            //Ponemos el setlocale que cambie toda la configuracion a potugues de Protugal
+            setlocale(LC_ALL, 'pt_PT.utf8');
+            //Cremaos una variable fecha que y con la funcion strftime que sirve para obtener un string expresado en el lenguaje de la configuración local creamos una fecha
+            $fecha = strftime("Hoje é %A, dia %d de %B de %Y, %H:%M:%S");
+            //Mostramos la fecha
+            echo $fecha;
+            ?>
+        </main>
+        <footer class="text-center bg-secondary fixed-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center text-white">
+                        <p>&copy;2023-24 IES los Sauces. Todos los derechos reservados. <a href="../../index.html" style="color: white; text-decoration: none">Borja Nuñez Refoyo</a></p>
+                    </div>
+                    <div class="col text-end">
+                        <a title="Inicio" href="../indexProyectoTema3.html"><img src="../webroot/images/casa.png" width="40" height="40" alt="Inicio"/></a>
+                        <a title="GitHub" href="https://github.com/BorjaNR/207DWESProyectoTema3" target="blank"><img src="../webroot/images/git.png" width="40" height="40" alt="GitHub"/></a>
+                    </div>
                 </div>
+            </div>
         </footer>
+        <script src="./webroot/js/mainjs.js" ></script>
     </body>
 </html>
 
