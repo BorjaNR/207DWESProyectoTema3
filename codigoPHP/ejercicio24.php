@@ -39,46 +39,71 @@
                 'volumen' => ''
             ];
             
+            //Creo la fecha del dia con date para que me creee la fecha actual en formato string
+            $fechaActual = date('d-m-Y');
             //Cargar valores por defecto en los campos del formulario
             //Para cada campo del formulario: Validar entrada y actuar en consecuencia
-            if (isset($_REQUEST['enviar'])){
+            //preguntar a heraclio si es mejor el request o utilizar el post en este caso
+            if (isset($_REQUEST['enviar'])) {
+                //Validar entrada
+                $aErrores = [
+                    'codDepartamento' => validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamento'],3,3,1),//Valido que sea alfabetico con un tamaño maximo de 3 y minimo de 3 y que sea obligatorio
+                    'descDepartamento' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descDepartamento'], 255, 1, 1),//Valido que sea alfanumerico con un tamaño maximo de 255 y minimo de 1 y que sea obligatorio
+                    'fechaCreacion' => validacionFormularios::validarFecha($_REQUEST['fechaCreacion'], "01/01/2200", $fechaActual, 1),//Valido que la fecha maxima sea en 2200 y la minima la del dia en el que se realiza el formulario
+                    'volumen' => validacionFormularios::comprobarFloat($_REQUEST['volumen'], PHP_FLOAT_MAX, PHP_FLOAT_MIN, 1)//Valido que sea un numero real y obligatorio
+                ];
+                //Recorremos los errores para ver si hay alguno
+                foreach ($aErrores as $campo => $error) {
+                    if (!is_null($error)){
+                         $entradaOK = false;
+                        //Limpiar campos malos
+                        $_REQUEST[$campo] = '';
+                    }
+                }
+            } else {
+                $entradaOK = false;
+            }
+
+            //Tratamiento del formulario
+            if ($entradaOK) {
+                //Cargar la variable $aRespuestas y tratamiento de datos OK
                 $aRespuestas = [
                     'codDepartamento' => $_REQUEST['codDepartamento'],
                     'descDepartamento' => $_REQUEST['descDepartamento'],
                     'fechaCreacion' => $_REQUEST['fechaCreacion'],
                     'volumen' => $_REQUEST['volumen']
                 ];
-                
+
                 //Recorremos las respuestas y las mostramos
                 foreach ($aRespuestas as $campo => $respuesta) {
                     echo "$campo=>$respuesta";
                 }
-            }else{
-                
-            }
-            
-            //Tratamiento del formulario
-            if ($entradaOK){
-                //Cargar la variable $aRespuestas y tratamiento de datos OK
-                
-            }else{
-            ?>
-            <form class="w-35 position-absolute top-50 start-50 translate-middle" name="fomrulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <div class="mb-3">
-                    <label class="form-label">Codigo de Departamento</label>
-                    <input type="text" class="form-control" name="codDepartamento">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Descripcion de Departamento</label>
-                    <textarea class="form-control" rows="3" name="descDepartamento"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Fecha de creacion</label>
-                    <input type="text" class="form-control" name="fechaCreacion">
-                </div>
-                <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
-            </form>
-            <?php
+            } else {
+                ?>
+                <form class="w-40 position-absolute top-50 start-50 translate-middle" name="fomrulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Codigo de Departamento</label>
+                        <input type="text" class="form-control" name="codDepartamento">
+                        <?php echo (!empty($aErrores["codDepartamento"]) ? '<span style="color: red;">' . $aErrores["codDepartamento"] . '</span>' : '');//Esto es para mostrar el mensaje de error en color rojo ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripcion de Departamento</label>
+                        <textarea class="form-control" rows="3" name="descDepartamento"></textarea>
+                        <?php echo (!empty($aErrores["descDepartamento"]) ? '<span style="color: red;">' . $aErrores["descDepartamento"] . '</span>' : '');//Esto es para mostrar el mensaje de error en color rojo ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha de creacion</label>
+                        <input type="text" class="form-control" name="fechaCreacion">
+                        <?php echo (!empty($aErrores["fechaCreacion"]) ? '<span style="color: red;">' . $aErrores["fechaCreacion"] . '</span>' : '');//Esto es para mostrar el mensaje de error en color rojo ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Volumen</label>
+                        <input type="text" class="form-control" name="volumen">
+                        <?php echo (!empty($aErrores["volumen"]) ? '<span style="color: red;">' . $aErrores["volumen"] . '</span>' : '');//Esto es para mostrar el mensaje de error en color rojo ?>
+                    </div>
+                    <input class="btn btn-primary" name="enviar" type="submit" value="Enviar">
+                </form>
+                <?php
             }
             ?>
         </main>
