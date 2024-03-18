@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ejercicio00</title>
+        <title>muestraejercicio17</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
-            <h3>0. Hola mundo y phpinfo().</h3>
+        <header class="text-center bg-secondary h-100 d-">
+            <h3>17. Inicializar un array (bidimensional con dos índices numéricos) donde almacenamos el nombre de las personas que tienen reservado el asiento 
+            en un teatro de 20 filas y 15 asientos por fila. (Inicializamos el array ocupando únicamente 5 asientos). 
+            Recorrer el array con distintas técnicas (foreach(), while(), for()) para mostrar los asientos ocupados en cada fila y las personas que lo ocupan.</h3>
         </header>
-        <main style="margin-bottom: 750px">
+        <main class="h-100 w-100">
             <?php
-            phpinfo();
+            show_source($filename = "../codigoPHP/ejercicio17.php");
             ?>
         </main>
         <footer class="text-center bg-secondary fixed-bottom py-3">
