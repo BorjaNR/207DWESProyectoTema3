@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary h-100 d-">
+        <header class="text-center bg-secondary h-100 text-white">
             <h3>3. Mostrar en tu página index la fecha y hora actual formateada en castellano.</h3>
         </header>
         <main class="h-100 w-100">

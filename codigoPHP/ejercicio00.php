@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
+        <header class="text-center bg-secondary text-white" style="height: 75px">
             <h3>0. Hola mundo y phpinfo().</h3>
         </header>
         <main style="margin-bottom: 750px">

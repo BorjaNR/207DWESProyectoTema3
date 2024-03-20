@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary h-100 d-">
+        <header class="text-center bg-secondary h-100 text-white">
             <h3>15. Crear e inicializar un array con el sueldo percibido de lunes a domingo. Recorrer el array para calcular el sueldo percibido durante la semana. (Array asociativo con los nombres de los días de la semana).</h3>
         </header>
         <main class="h-100 w-100">

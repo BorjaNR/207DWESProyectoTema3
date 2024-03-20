@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
+        <header class="text-center bg-secondary text-white" style="height: 75px">
             <h3>2. Inicializar y mostrar una variable heredoc.</h3>
         </header>
         <main style="margin-bottom: 75px" class="fs-4">

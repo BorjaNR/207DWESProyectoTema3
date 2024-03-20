@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <header class="text-center bg-secondary" style="height: 125px">
+    <header class="text-center bg-secondary text-white" style="height: 125px">
         <h3>17. Inicializar un array (bidimensional con dos índices numéricos) donde almacenamos el nombre de las personas que tienen reservado el asiento 
             en un teatro de 20 filas y 15 asientos por fila. (Inicializamos el array ocupando únicamente 5 asientos). 
             Recorrer el array con distintas técnicas (foreach(), while(), for()) para mostrar los asientos ocupados en cada fila y las personas que lo ocupan.</h3>

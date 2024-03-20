@@ -7,7 +7,7 @@
     </head>
     <link rel="stylesheet" href="../webroot/css/main.css"/>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
+        <header class="text-center bg-secondary text-white" style="height: 75px">
             <h3>6. Operar con fechas: calcular la fecha y el día de la semana de dentro de 60 días.</h3>
         </header>
         <main style="margin-bottom: 75px">

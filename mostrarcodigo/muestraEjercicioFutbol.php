@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>muestraejercicio04</title>
+        <title>muestraejerciciofutbol</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
         <header class="text-center bg-secondary h-100 text-white">
-            <h3>4. Mostrar en tu página index la fecha y hora actual en Oporto formateada en portugués.</h3>
+            <h3>27. Ejercicio Futbol</h3>
         </header>
         <main class="h-100 w-100">
             <?php
-            show_source($filename = "../codigoPHP/ejercicio04.php");
+            show_source($filename = "../codigoPHP/ejercicioFutbol.php");
             ?>
         </main>
         <footer class="text-center bg-secondary fixed-bottom py-3">

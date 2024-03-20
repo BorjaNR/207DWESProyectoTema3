@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../webroot/css/main.css"/>
     </head>
     <body>
-        <header class="text-center bg-secondary" style="height: 75px">
+        <header class="text-center bg-secondary text-white" style="height: 75px">
             <h3>1. Inicializar variables de los distintos tipos de datos básicos(string, int, float, bool) y mostrar los datos por pantalla (echo, print, printf, print_r,var_dump).</h3>
         </header>
         <main style="margin-bottom: 75px">
@@ -21,6 +21,14 @@
             $entero = 17;
             $real = 18.9;
             $interruptor = true;
+            $variable1 = null;
+            $variable2 = null;
+            
+            echo '<p>La variable <span style="color:greenyellow">$variable1</span> es de tipo <span style="color:greenyellow">' . gettype($variable1) . '</span> y tiene el valor <span style="color:greenyellow">' . " $variable1</span></p>";
+            echo '<p>La variable <span style="color:greenyellow">$variable2</span> es de tipo <span style="color:greenyellow">' . gettype($variable2) . '</span> y tiene el valor <span style="color:greenyellow">' . " $variable2</span></p>";
+            echo '<p>La variable <span style="color:greenyellow">$cadena</span> es de tipo <span style="color:greenyellow">' . gettype($variable1.$variable2) . '</span> y tiene el valor <span style="color:greenyellow">' . " $variable1"."$variable2</span></p>";
+            echo '<p>EL RESULTADO DE LA FUNCION IS_NULL($variable1)ES:'. is_null($variable1) . '</p>';
+            echo '<p>EL RESULTADO DE LA FUNCION IS_NULL($variable1.$variable2)ES:'. is_null($variable1.$variable2) . '</p>';
             //Mostrar las variables con echo
             echo '<h1>Adios</h1>';
             echo '<h2>Con echo:</h2>';
